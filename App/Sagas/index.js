@@ -3,15 +3,23 @@ import API from '../Services/Api'
 import FixtureAPI from '../Services/FixtureApi'
 import DebugConfig from '../Config/DebugConfig'
 
+import EHaveAPI from '../Services/EHaveApi'
+
 /* ------------- Types ------------- */
 
 import { StartupTypes } from '../Redux/StartupRedux'
 import { GithubTypes } from '../Redux/GithubRedux'
 
+
+import { PaitentTypes } from '../Redux/PaitentRedux'
+
 /* ------------- Sagas ------------- */
 
 import { startup } from './StartupSagas'
 import { getUserAvatar } from './GithubSagas'
+
+
+import { getPaitentData } from './PaitentSagas'
 
 /* ------------- API ------------- */
 
@@ -27,6 +35,8 @@ export default function * root () {
     takeLatest(StartupTypes.STARTUP, startup),
 
     // some sagas receive extra parameters in addition to an action
-    takeLatest(GithubTypes.USER_REQUEST, getUserAvatar, api)
+    takeLatest(GithubTypes.USER_REQUEST, getUserAvatar, api),
+
+    takeLatest(PaitentTypes.PAITENT_REQUEST, getPaitentData, EHaveAPI)
   ])
 }
