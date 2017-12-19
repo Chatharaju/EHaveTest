@@ -1,18 +1,16 @@
 import { call, put } from 'redux-saga/effects'
 import { path } from 'ramda'
-import GithubActions from '../Redux/GithubRedux'
+import PaitentActions from '../Redux/PaitentRedux'
 
-export function * getUserAvatar (api, action) {
-  const { username } = action
+export function * getPaitentData (api, action) {
+    const { MRN } = action
   // make the call to the api
-  const response = yield call(api.getUser, username)
+  const response = yield call(api.getPaitent, MRN)
 
   if (response.ok) {
-    const firstUser = path(['data', 'items'], response)[0]
-    const avatar = firstUser.avatar_url
-    // do data conversion here if needed
-    yield put(GithubActions.userSuccess(avatar))
+
+    yield put(PaitentActions.paitentSuccess(response.data))
   } else {
-    yield put(GithubActions.userFailure())
+    yield put(PaitentActions.paitentFailure())
   }
 }

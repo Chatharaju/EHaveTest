@@ -4,49 +4,43 @@ import Immutable from 'seamless-immutable'
 /* ------------- Types and Action Creators ------------- */
 
 const { Types, Creators } = createActions({
-  userRequest: ['username'],
-  userSuccess: ['avatar'],
-  userFailure: null
+  paitentRequest: ['MRN'],
+  paitentSuccess: ['paitentData'],
+  paitentFailure: null
 })
 
-export const GithubTypes = Types
+export const PaitentTypes = Types
 export default Creators
 
 /* ------------- Initial State ------------- */
 
 export const INITIAL_STATE = Immutable({
-  avatar: null,
+  MRN: null,
+  paitentData: null,
   fetching: null,
   error: null,
-  username: null
 })
-
-/* ------------- Selectors ------------- */
-
-export const GithubSelectors = {
-  selectAvatar: state => state.github.avatar
-}
 
 /* ------------- Reducers ------------- */
 
-// request the avatar for a user
-export const request = (state, { username }) =>
-  state.merge({ fetching: true, username, avatar: null })
+// request for Paitent
+export const request = (state, { MRN }) =>
+    state.merge({ fetching: true, MRN, paitentData: null })
 
-// successful avatar lookup
+// successful Paitent data
 export const success = (state, action) => {
-  const { avatar } = action
-  return state.merge({ fetching: false, error: null, avatar })
+  const { paitentData } = action
+  return state.merge({ fetching: false, error: null, paitentData })
 }
 
-// failed to get the avatar
+// failed to get paitent data
 export const failure = (state) =>
-  state.merge({ fetching: false, error: true, avatar: null })
+  state.merge({ fetching: false, error: true, paitentData: null })
 
 /* ------------- Hookup Reducers To Types ------------- */
 
 export const reducer = createReducer(INITIAL_STATE, {
-  [Types.USER_REQUEST]: request,
-  [Types.USER_SUCCESS]: success,
-  [Types.USER_FAILURE]: failure
+  [Types.PAITENT_REQUEST]: request,
+  [Types.PAITENT_SUCCESS]: success,
+  [Types.PAITENT_FAILURE]: failure
 })
