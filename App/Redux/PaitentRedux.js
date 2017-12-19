@@ -4,7 +4,7 @@ import Immutable from 'seamless-immutable'
 /* ------------- Types and Action Creators ------------- */
 
 const { Types, Creators } = createActions({
-  paitentRequest: ['MRN'],
+  paitentRequest: [],
   paitentSuccess: ['paitentData'],
   paitentFailure: null
 })
@@ -15,7 +15,6 @@ export default Creators
 /* ------------- Initial State ------------- */
 
 export const INITIAL_STATE = Immutable({
-  MRN: null,
   paitentData: null,
   fetching: null,
   error: null,
@@ -24,13 +23,14 @@ export const INITIAL_STATE = Immutable({
 /* ------------- Reducers ------------- */
 
 // request for Paitent
-export const request = (state, { MRN }) =>
-    state.merge({ fetching: true, MRN, paitentData: null })
+export const request = (state) =>
+    state.merge({ fetching: true, paitentData: null })
 
 // successful Paitent data
 export const success = (state, action) => {
   const { paitentData } = action
-  return state.merge({ fetching: false, error: null, paitentData })
+    // console.error(paitentData)
+    return state.merge({ fetching: false, error: null, paitentData: paitentData })
 }
 
 // failed to get paitent data
