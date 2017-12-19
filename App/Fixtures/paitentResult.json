@@ -1,0 +1,33 @@
+{
+  "total_count": 2,
+  "incomplete_results": false,
+  "items": [
+    {
+    "MRN" : "1",
+    "timestamp" : "2016-06-07T20:16:44.304Z",
+    "resultType" : "SSRT",
+    "resultValue" : 0.5433
+
+    },
+    {
+      "MRN" : "1",
+      "timestamp" : "2016-06-07T20:16:44.304Z",
+      "resultType" : "SSRT",
+      "resultValue" : 0.3433
+    },
+    {
+      "MRN" : "2",
+      "timestamp" : "2016-06-07T20:16:44.304Z",
+      "resultType" : "SSRT",
+      "resultValue" : 0.4542
+
+    },
+    {
+      "MRN" : "2",
+      "timestamp" : "2016-06-07T20:16:44.304Z",
+      "resultType" : "SSRT",
+      "resultValue" : 0.7656
+    }
+
+  ]
+}

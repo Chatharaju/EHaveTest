@@ -1,0 +1,21 @@
+{
+  "total_count": 2,
+  "incomplete_results": false,
+  "items": [
+    {
+    "MRN" : "1",
+    "lastName" : "John",
+    "firstName" : "Doe",
+    "sex" : "M",
+    "birthDate" : "2000/12/31"
+  },
+  {
+    "MRN" : "2",
+    "lastName" : "Rock",
+    "firstName" : "Hill",
+    "sex" : "F",
+    "birthDate" : "1987/9/13"
+  }
+
+  ]
+}
