@@ -12,6 +12,7 @@ import { GithubTypes } from '../Redux/GithubRedux'
 
 
 import { PaitentTypes } from '../Redux/PaitentRedux'
+import { PaitentResultsTypes } from '../Redux/PaitentResultsRedux'
 
 /* ------------- Sagas ------------- */
 
@@ -20,6 +21,7 @@ import { getUserAvatar } from './GithubSagas'
 
 
 import { getPaitentData } from './PaitentSagas'
+import { getPaitentResultData } from './PaitentResultsSagas'
 
 /* ------------- API ------------- */
 
@@ -37,6 +39,7 @@ export default function * root () {
     // some sagas receive extra parameters in addition to an action
     takeLatest(GithubTypes.USER_REQUEST, getUserAvatar, api),
 
-    takeLatest(PaitentTypes.PAITENT_REQUEST, getPaitentData, EHaveAPI)
+    takeLatest(PaitentTypes.PAITENT_REQUEST, getPaitentData, EHaveAPI),
+    takeLatest(PaitentResultsTypes.PAITENT_RESULTS_REQUEST, getPaitentResultData, EHaveAPI)
   ])
 }

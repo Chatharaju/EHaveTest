@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import { ScrollView, Text, Image, View, ListView, TouchableOpacity } from 'react-native'
+import { Text, Image, View, ListView, TouchableOpacity } from 'react-native'
 import {connect} from 'react-redux'
 import { Images } from '../Themes'
 
@@ -34,7 +34,7 @@ class PatientScreen extends Component {
 
     paitentResults (paitentID) {
         // console.error(paitentID)
-        this.props.navigation.navigate('PaitentResultsScreen', {paitentID: paitentID})
+        this.props.navigation.navigate('PaitentResultScreen', {paitentID: paitentID})
     }
 
     _renderRow (rowData) {
